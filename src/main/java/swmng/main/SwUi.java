@@ -7,11 +7,13 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import swmng.panel.Companel;
+import swmng.panel.CompanyList;
 
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
@@ -50,6 +52,7 @@ public class SwUi extends JFrame {
 
 		JPanel MainPanel = new JPanel();
 		contentPane.add(MainPanel, BorderLayout.CENTER);
+		MainPanel.setLayout(new BorderLayout(0, 0));
 		
 		JMenuBar mBar = new JMenuBar();
 		contentPane.add(mBar, BorderLayout.NORTH);
@@ -60,31 +63,15 @@ public class SwUi extends JFrame {
 		JMenuItem mMenuItem = new JMenuItem("공급회사");
 		mMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				remove(MainPanel);
-				contentPane.add(new Companel());
+			//	MainPanel.removeAll();
+				MainPanel.add(new CompanyList(), BorderLayout.CENTER);
 				revalidate();
 				repaint();
+				remove(MainPanel);
 			}
 		});
 		mMenu.add(mMenuItem);
-		
-		JPanel BtnPanel = new JPanel();
-		contentPane.add(BtnPanel, BorderLayout.SOUTH);
-		
-		JButton addbtn = new JButton("등록");
-		addbtn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		BtnPanel.add(addbtn);
-		
-		JButton delbtn = new JButton("수정");
-		BtnPanel.add(delbtn);
-		
-		JButton updbtn = new JButton("삭제");
-		BtnPanel.add(updbtn);
-		
+	
 	}
 
 }

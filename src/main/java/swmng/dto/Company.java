@@ -6,8 +6,12 @@ public class Company {
 	private String address;
 	private String tel;
 	
-	public Company(){}
-	
+/*	public Company(String coName, String address, String tel){
+		this.coName = coName;
+		this.address = address;
+		this.tel = tel;
+	}
+	*/
 	public int getNo() {
 		return no;
 	}
@@ -38,6 +42,8 @@ public class Company {
 		this.address = address;
 		this.tel = tel;
 	}
+	public Company() {}
+
 	public String[] toArray(){
 		return new String [] {no+"",coName+"",address+"",tel+""};
 		
